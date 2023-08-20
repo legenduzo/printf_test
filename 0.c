@@ -92,7 +92,7 @@ int write_string(va_list *args)
 	s = va_arg(*args, char *);
 
 	if (!s)
-		return (write(1, "(nil)", 5));
+		return (write(1, "(nil)", -1));
 	return (write(1, s, strlen(s)));
 }
 
