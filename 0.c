@@ -65,7 +65,7 @@ char *int_to_string(int number)
 
 int write_int(va_list *args)
 {
-	int number;
+	int number, result;
 	char *buffer;
 
 	number = va_arg(*args, int);
@@ -74,7 +74,9 @@ int write_int(va_list *args)
 	buffer = int_to_string(number);
 	if (!buffer)
 		return (-1);
-	return (write(1, buffer, strlen(buffer)));
+	result = write(1, buffer, strlen(buffer));
+	free(buffer);
+	return (result);
 }
 /**
  * write_string - writes a string to fd 1 or returns -1
@@ -133,8 +135,7 @@ int _printf(const char *format, ...)
 			c = write_char(&args);
 			if (c == -1)
 				return (c);
-			else
-				sum += c;
+			sum += c;
 			format += 2;
 		}
 		else if (*format == '%' && *(format + 1) == 's')
