@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- * main - Entry point
+ * main - Test printf
  *
  * Return: Always 0
  */
@@ -13,6 +13,8 @@ int main(void)
     int len2;
     /*  unsigned int ui;
     void *addr; */
+
+    /* Tests for char and string */
 
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
@@ -100,6 +102,23 @@ int main(void)
     printf("\n");
     _printf("len from outright null: %d\n", len);
     printf("len from outright null: %d\n", len2);
+
+    /* Tests for digits (%i and %d) */
+
+    len = _printf("%d\n", 0);
+    len2 = printf("%d\n", 0);
+    _printf("len from zero:%d\n", len);
+    printf("len from zero:%d\n", len2);
+
+    len = _printf("%d\n", NULL);
+    len2 = printf("%d\n", NULL);
+    _printf("len from null digit:%d\n", len);
+    printf("len from null digit:%d\n", len2);
+
+    len = _printf("%c\n", "m");
+    len2 = printf("%c\n", "m");
+    _printf("len from m string:%d\n", len);
+    printf("len from m string:%d\n", len2);
 
     _printf("%s\n", NULL);
     printf("%s\n", NULL);
