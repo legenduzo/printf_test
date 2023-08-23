@@ -101,9 +101,11 @@ int main(void)
     len2 = printf(NULL);
     printf("\n");
     _printf("len from outright null: %d\n", len);
-    printf("len from outright null: %d\n", len2);
+    printf("len from outright null: %d\n\n", len2);
 
     /* Tests for digits (%i and %d) */
+
+    _printf("TESTS FOR DIGITS\n\n");
 
     len = _printf("%d\n", 0);
     len2 = printf("%d\n", 0);
@@ -114,6 +116,16 @@ int main(void)
     len2 = printf("%d\n", NULL);
     _printf("len from null digit:%d\n", len);
     printf("len from null digit:%d\n", len2);
+
+    len = _printf("%d\n", INT_MIN);
+    len2 = printf("%d\n", INT_MIN);
+    _printf("len from int min:%d\n", len);
+    printf("len from int min:%d\n", len2);
+
+    len = _printf("%d\n", INT_MAX);
+    len2 = printf("%d\n", INT_MAX);
+    _printf("len from int max:%d\n", len);
+    printf("len from int max:%d\n", len2);
 
     len = _printf("%c\n", "m");
     len2 = printf("%c\n", "m");
